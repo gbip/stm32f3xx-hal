@@ -9,7 +9,7 @@ use crate::hal::serial;
 use crate::stm32::{USART1, USART2, USART3};
 use nb;
 
-use crate::gpio::gpioa::{PA10, PA2, PA3, PA9};
+use crate::gpio::gpioa::{PA10, PA2, PA3, PA9, PA15};
 #[cfg(any(
     feature = "stm32f301",
     feature = "stm32f318",
@@ -138,7 +138,7 @@ unsafe impl TxPin<USART2> for PA2<AF7> {}
 unsafe impl TxPin<USART2> for PD5<AF7> {}
 
 unsafe impl RxPin<USART2> for PA3<AF7> {}
-// unsafe impl RxPin<USART2> for PA15<AF7> {}
+unsafe impl RxPin<USART2> for PA15<AF7> {}
 // unsafe impl RxPin<USART2> for PB4<AF7> {}
 #[cfg(any(
     feature = "stm32f302",
